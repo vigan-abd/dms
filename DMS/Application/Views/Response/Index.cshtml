@@ -1,0 +1,17 @@
+﻿@using Microsoft.Security.Application
+@{
+    ViewBag.Title = ViewBag.Type;
+}
+
+<div class="jumbotron">
+    <h1>
+        @Encoder.JavaScriptEncode(Html.Encode(ViewBag.Type)).Replace("'", "") -
+        @Encoder.JavaScriptEncode(Html.Encode(ViewBag.Code)).Replace("'", "")
+    </h1>
+    <p class="lead">
+        @Encoder.JavaScriptEncode(Html.Encode(ViewBag.Message)).Replace("'", "")
+    </p>
+    <p>
+        <a href="@Url.Action("Index", "Home", null, Request.Url.Scheme)" class="dms-button">home &raquo;</a>
+    </p>
+</div>

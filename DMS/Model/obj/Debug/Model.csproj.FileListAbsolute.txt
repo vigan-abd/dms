@@ -1,0 +1,48 @@
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\DB Context\DMSDB.mdf
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\DB Context\DMSDB_log.ldf
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\Model.dll.config
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\Model.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\Model.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\EntityFramework.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\EntityFramework.xml
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\obj\Debug\Model.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Model\obj\Debug\Model.pdb
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.Mvc.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.Mvc.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\DB Context\DMSDB.mdf
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\DB Context\DMSDB_log.ldf
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\Model.dll.config
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\Model.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\Model.pdb
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\EntityFramework.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.Mvc.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.Razor.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.Razor.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\EntityFramework.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.Mvc.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.Razor.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\obj\Debug\Model.dll
+D:\FK\Paradigmat e programimit\Projekti\DMS\Model\obj\Debug\Model.pdb

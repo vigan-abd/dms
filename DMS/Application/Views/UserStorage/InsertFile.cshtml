@@ -1,0 +1,64 @@
+﻿@using Model.Business.ViewModel
+@using Model.Business.Session
+@model FileViewModel
+@{
+    ViewBag.Title = "Insert File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="max-width: 500px;">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("InsertFile", "UserStorage", FormMethod.Post, htmlAttributes: new { @class = "dms-form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.ShortDesc)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.TextAreaFor(model => model.ShortDesc)
+                @Html.ValidationMessageFor(model => model.ShortDesc, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.AccessLevel)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.DropDownListFor(model => model.AccessLevel, Model.ShareTypes, htmlAttributes: new { onchange = "ChangeShareDropdown(this, 'sharelist');" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.ShareList)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.DropDownListFor(model => model.ShareList, ViewBag.UserList as MultiSelectList, new { multiple = "multiple" })
+                @Html.ValidationMessageFor(model => model.ShareList, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Keywords)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.Keywords)
+                @Html.ValidationMessageFor(model => model.Keywords, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12 dms-input-holder">
+                <input type="file" name="file" />
+            </div>
+            <div class="col-sm-12 dms-input-holder align-right" style="margin-top: 20px;">
+                <input type="submit" class="dms-button" style="width: 100%;" value="Send" />
+            </div>
+        }
+    </div>
+</div>

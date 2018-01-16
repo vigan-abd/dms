@@ -1,0 +1,32 @@
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\TestingConsole.exe.config
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\TestingConsole.exe
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\TestingConsole.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\obj\Debug\TestingConsole.exe
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\obj\Debug\TestingConsole.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\DB Context\DMSDB.mdf
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\DB Context\DMSDB_log.ldf
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Helpers.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Model.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Repository.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Helpers.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Model.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\Repository.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\EntityFramework.xml
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\obj\Debug\TestingConsole.csprojResolveAssemblyReference.cache
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\EntityFramework.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\TestingConsole\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.Mvc.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.Mvc.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\Service.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\TestingConsole\bin\Debug\Service.pdb

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44998568398249c19fb851d4c9659195" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.DomainModel.AccessRequest" Width="1.5" PointX="9.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DomainModel.File" Width="1.5" PointX="4.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DomainModel.FileVersion" Width="1.5" PointX="1.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DomainModel.SizeRequest" Width="1.5" PointX="1.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DomainModel.User" Width="1.5" PointX="7" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.DomainModel.FK__AccessReq__FileI__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DomainModel.FK__AccessReq__UserI__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DomainModel.FK__Files__UserID__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DomainModel.FK__FileVersi__FileI__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DomainModel.FK__SizeReque__UserI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DomainModel.FileShare" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

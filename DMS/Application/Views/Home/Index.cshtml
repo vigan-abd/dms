@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>DMS</h1>
+    <p class="lead">
+        DMS is a free web document management application for storing and sharing data
+    </p>
+    <p><a href="@Url.Action("Index", "UserStorage", null, Request.Url.Scheme)" class="dms-button">Goto Storage &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Account</h2>
+        <p>
+            View your account info
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Account", null, Request.Url.Scheme)">Goto Account &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Access files</h2>
+        <p>
+            View other users documents that you have access
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "FileAccess", null, Request.Url.Scheme)">Access List &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Search</h2>
+        <p>
+            Search for additional documents available at the system
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Search", null, Request.Url.Scheme)">Goto Search &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Model.Business.ViewModel
+@model SizeRequestViewModel
+@{
+    ViewBag.Title = "Size Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="max-width: 500px;">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("SizeRequest", "UserStorage", FormMethod.Post, htmlAttributes: new { @class = "dms-form" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.Username, new {value = Model.Username })
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.AdditionalSize)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.AdditionalSize)
+                @Html.ValidationMessageFor(model => model.AdditionalSize, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-12 dms-input-holder align-right" style="margin-top: 20px;">
+                <input type="submit" class="dms-button" style="width: 100%;" value="Send" />
+            </div>
+        }
+    </div>
+</div>

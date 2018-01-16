@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelDomainModelStoreContainer" CdmEntityContainer="DMSDBEntities">
+    <EntitySetMapping Name="AccessRequests">
+      <EntityTypeMapping TypeName="Model.DomainModel.AccessRequest">
+        <MappingFragment StoreEntitySet="AccessRequest">
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FileID" ColumnName="FileID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="Model.DomainModel.File">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="ExternalLink" ColumnName="ExternalLink" />
+          <ScalarProperty Name="RelativeDirectory" ColumnName="RelativeDirectory" />
+          <ScalarProperty Name="FileID" ColumnName="FileID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+          <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+          <ScalarProperty Name="LastVersion" ColumnName="LastVersion" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileVersions">
+      <EntityTypeMapping TypeName="Model.DomainModel.FileVersion">
+        <MappingFragment StoreEntitySet="FileVersion">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VerNo" ColumnName="VerNo" />
+          <ScalarProperty Name="FileID" ColumnName="FileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SizeRequests">
+      <EntityTypeMapping TypeName="Model.DomainModel.SizeRequest">
+        <MappingFragment StoreEntitySet="SizeRequest">
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Model.DomainModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="StorageSize" ColumnName="StorageSize" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FileShare" TypeName="Model.DomainModel.FileShare" StoreEntitySet="FileShare">
+      <EndProperty Name="Files">
+        <ScalarProperty Name="FileID" ColumnName="FileID" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UserID" ColumnName="UserID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spAtLeastOnceKeyword" FunctionName="Model.DomainModel.Store.spAtLeastOnceKeyword" />
+  </EntityContainerMapping>
+</Mapping>

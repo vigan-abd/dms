@@ -1,0 +1,56 @@
+﻿@using Model.Domain_Model
+@model IEnumerable<User>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Admin</h3>
+<hr />
+<div class="col-sm-12 dms-input-holder" style="margin-top: 20px;margin-bottom: 20px;">
+    @Html.ActionLink("My Account", "Index", "Account", routeValues: null, htmlAttributes: new { @class = "dms-button" }) <span>&nbsp;</span>
+    @Html.ActionLink("Size Request", "SizeRequests", "Admin", htmlAttributes: new { @class = "dms-button" })
+</div>
+
+<div class="col-sm-12 dms-input-holder" style="margin-top: 20px;margin-bottom: 20px;">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="dms-tbl-th">#</th>
+                    <th class="dms-tbl-th">Username</th>
+                    <th class="dms-tbl-th">Email</th>
+                    <th class="dms-tbl-th">State</th>
+                    <th class="dms-tbl-th">Size</th>
+                    <th class="dms-tbl-th">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+            {
+                    <tr>
+                        <td>@user.UserID</td>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @if (user.Active)
+                            {
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            }
+                        </td>
+                        <td>@user.StorageSize</td>
+                        <td>
+                            @Html.ActionLink((user.Active ? "Deactivate" : "Activate"),
+                       (user.Active ? "AdminDeactivate" : "AdminActivate"), "Account", new { id = user.Username }, new { }) | 
+                            <a onclick="Delete('Account', 'DeleteUser', 'id=' + @user.UserID );">Delete Forever</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

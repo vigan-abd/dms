@@ -1,0 +1,45 @@
+﻿@using Model.Business.ViewModel
+@model UserViewModel
+
+@{
+            ViewBag.Title = "Login";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="max-width: 500px;">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { @class = "dms-form" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Username)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.PasswordFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-12 dms-input-holder align-right" style="margin-top: 20px;">
+                <input type="submit" class="dms-button" style="width: 100%;" value="Login" />
+            </div>
+            <div class="col-sm-12 dms-input-holder align-center">
+                <div class="col-sm-6 col-no-padding">
+                    @Html.ActionLink("Register", "Register", "Account")
+                </div>
+                <div class="col-sm-6 col-no-padding">
+                    @Html.ActionLink("Forget password", "ForgetPassword", "Account")
+                </div>
+            </div>
+        }
+    </div>
+</div>

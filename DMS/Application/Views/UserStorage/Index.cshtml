@@ -1,0 +1,27 @@
+﻿@using Model.Business.ViewModel
+@using Helpers.Web
+@model UserStorageViewModel
+@{
+    ViewBag.Title = "Storage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Storage</h3>
+<hr />
+@ViewBag.Size.Item1 / @ViewBag.Size.Item2 GB used
+<div class="col-sm-12 col-no-padding" style="border: 1px solid #333; height: 10px; border-radius: 5px">
+    <div style="float: left; width: @(ViewBag.Size.Item1 / ViewBag.Size.Item2); background: #e6412e; height: 100%;"></div>
+</div>
+<div class="col-sm-12 dms-input-holder" style="margin-top: 20px;margin-bottom: 20px;">
+    @Html.ActionLink("Request additional size", "SizeRequest", "UserStorage", htmlAttributes: new { @class = "dms-button" })
+    @Html.ActionLink("Add File", "InsertFile", "UserStorage", htmlAttributes: new { @class = "dms-button" })
+</div>
+<div class="col-sm-12 col-no-padding"><hr /></div>
+
+<h4>Files</h4>
+<div class="col-sm-12">
+    @for (int i = 0; i < Model.Files.Count; i++)
+    {
+        @Html.Raw(UIHelper.FileBox(Model.Files[i].FileID, Model.Files[i].Title, editaction: "Single"));
+    }
+</div>

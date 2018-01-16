@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.DomainModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccessRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FileID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Stamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShortDesc" Type="text" Nullable="false" />
+          <Property Name="RelativeDirectory" Type="text" Nullable="false" />
+          <Property Name="AccessLevel" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LastVersion" Type="int" Nullable="false" />
+          <Property Name="Keywords" Type="varchar(max)" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+          <Property Name="ExternalLink" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileShare">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FileID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileVersion">
+          <Key>
+            <PropertyRef Name="VerNo" />
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="VerNo" Type="int" Nullable="false" />
+          <Property Name="Name" Type="text" Nullable="false" />
+          <Property Name="FileID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SizeRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Stamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="Salt" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="StorageSize" Type="int" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AccessReq__FileI__531856C7">
+          <End Role="Files" Type="Self.Files" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccessRequest" Type="Self.AccessRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="AccessRequest">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccessReq__UserI__0B91BA14">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AccessRequest" Type="Self.AccessRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AccessRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Files__UserID__55009F39">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Files" Type="Self.Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileShare__FileI__540C7B00">
+          <End Role="Files" Type="Self.Files" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FileShare" Type="Self.FileShare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="FileShare">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileVersi__FileI__5224328E">
+          <End Role="Files" Type="Self.Files" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FileVersion" Type="Self.FileVersion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="FileVersion">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SizeReque__UserI__0F624AF8">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SizeRequest" Type="Self.SizeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="SizeRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spAtLeastOnceKeyword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelDomainModelStoreContainer">
+          <EntitySet Name="AccessRequest" EntityType="Self.AccessRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileShare" EntityType="Self.FileShare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileVersion" EntityType="Self.FileVersion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SizeRequest" EntityType="Self.SizeRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AccessReq__FileI__531856C7" Association="Self.FK__AccessReq__FileI__531856C7">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="AccessRequest" EntitySet="AccessRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccessReq__UserI__0B91BA14" Association="Self.FK__AccessReq__UserI__0B91BA14">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AccessRequest" EntitySet="AccessRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Files__UserID__55009F39" Association="Self.FK__Files__UserID__55009F39">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileShare__FileI__540C7B00" Association="Self.FK__FileShare__FileI__540C7B00">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="FileShare" EntitySet="FileShare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileVersi__FileI__5224328E" Association="Self.FK__FileVersi__FileI__5224328E">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="FileVersion" EntitySet="FileVersion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SizeReque__UserI__0F624AF8" Association="Self.FK__SizeReque__UserI__0F624AF8">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SizeRequest" EntitySet="SizeRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model.DomainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccessRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FileID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Stamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="File" Relationship="Self.FK__AccessReq__FileI__36B12243" FromRole="AccessRequest" ToRole="Files" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AccessReq__UserI__37A5467C" FromRole="AccessRequest" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccessLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LastVersion" Type="Int32" Nullable="false" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AccessRequests" Relationship="Self.FK__AccessReq__FileI__36B12243" FromRole="Files" ToRole="AccessRequest" />
+          <NavigationProperty Name="Owner" Relationship="Self.FK__Files__UserID__2C3393D0" FromRole="Files" ToRole="Users" />
+          <NavigationProperty Name="FileVersions" Relationship="Self.FK__FileVersi__FileI__2F10007B" FromRole="Files" ToRole="FileVersion" />
+          <NavigationProperty Name="AccessUsers" Relationship="Self.FileShare" FromRole="Files" ToRole="Users" />
+          <Property Name="RelativeDirectory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalLink" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FileVersion">
+          <Key>
+            <PropertyRef Name="VerNo" />
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="VerNo" Type="Int32" Nullable="false" />
+          <Property Name="FileID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="File" Relationship="Self.FK__FileVersi__FileI__2F10007B" FromRole="FileVersion" ToRole="Files" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SizeRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Stamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__SizeReque__UserI__3B75D760" FromRole="SizeRequest" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="StorageSize" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AccessRequests" Relationship="Self.FK__AccessReq__UserI__37A5467C" FromRole="Users" ToRole="AccessRequest" />
+          <NavigationProperty Name="Files" Relationship="Self.FK__Files__UserID__2C3393D0" FromRole="Users" ToRole="Files" />
+          <NavigationProperty Name="SizeRequests" Relationship="Self.FK__SizeReque__UserI__3B75D760" FromRole="Users" ToRole="SizeRequest" />
+          <NavigationProperty Name="AccessFiles" Relationship="Self.FileShare" FromRole="Users" ToRole="Files" />
+        </EntityType>
+        <Association Name="FK__AccessReq__FileI__36B12243">
+          <End Role="Files" Type="Self.File" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccessRequest" Type="Self.AccessRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="AccessRequest">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccessReq__UserI__37A5467C">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="AccessRequest" Type="Self.AccessRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AccessRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Files__UserID__2C3393D0">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Files" Type="Self.File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileVersi__FileI__2F10007B">
+          <End Role="Files" Type="Self.File" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FileVersion" Type="Self.FileVersion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="FileVersion">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SizeReque__UserI__3B75D760">
+          <End Role="Users" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SizeRequest" Type="Self.SizeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="SizeRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileShare">
+          <End Role="Files" Type="Self.File" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DMSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccessRequests" EntityType="Self.AccessRequest" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <EntitySet Name="FileVersions" EntityType="Self.FileVersion" />
+          <EntitySet Name="SizeRequests" EntityType="Self.SizeRequest" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__AccessReq__FileI__36B12243" Association="Self.FK__AccessReq__FileI__36B12243">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="AccessRequest" EntitySet="AccessRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccessReq__UserI__37A5467C" Association="Self.FK__AccessReq__UserI__37A5467C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AccessRequest" EntitySet="AccessRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Files__UserID__2C3393D0" Association="Self.FK__Files__UserID__2C3393D0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileVersi__FileI__2F10007B" Association="Self.FK__FileVersi__FileI__2F10007B">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="FileVersion" EntitySet="FileVersions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SizeReque__UserI__3B75D760" Association="Self.FK__SizeReque__UserI__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SizeRequest" EntitySet="SizeRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FileShare" Association="Self.FileShare">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="spAtLeastOnceKeyword">
+          <Parameter Name="Keywords" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelDomainModelStoreContainer" CdmEntityContainer="DMSDBEntities">
+          <EntitySetMapping Name="AccessRequests">
+            <EntityTypeMapping TypeName="Model.DomainModel.AccessRequest">
+              <MappingFragment StoreEntitySet="AccessRequest">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="Model.DomainModel.File">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="ExternalLink" ColumnName="ExternalLink" />
+                <ScalarProperty Name="RelativeDirectory" ColumnName="RelativeDirectory" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="LastVersion" ColumnName="LastVersion" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileVersions">
+            <EntityTypeMapping TypeName="Model.DomainModel.FileVersion">
+              <MappingFragment StoreEntitySet="FileVersion">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VerNo" ColumnName="VerNo" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SizeRequests">
+            <EntityTypeMapping TypeName="Model.DomainModel.SizeRequest">
+              <MappingFragment StoreEntitySet="SizeRequest">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.DomainModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="StorageSize" ColumnName="StorageSize" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FileShare" TypeName="Model.DomainModel.FileShare" StoreEntitySet="FileShare">
+            <EndProperty Name="Files">
+              <ScalarProperty Name="FileID" ColumnName="FileID" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="UserID" ColumnName="UserID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spAtLeastOnceKeyword" FunctionName="Model.DomainModel.Store.spAtLeastOnceKeyword" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

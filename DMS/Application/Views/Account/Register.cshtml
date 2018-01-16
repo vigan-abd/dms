@@ -1,0 +1,70 @@
+﻿@model Model.Business.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Register</h2>
+        <hr />
+
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, htmlAttributes: new { @class = "dms-form" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="col-sm-12 col-no-padding">
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.Username)
+                    </div>
+                    <div class="col-sm-12 dms-input-holder">
+                        @Html.EditorFor(model => model.Username)
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="col-sm-12 dms-input-holder">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-no-padding">
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.Password)
+                    </div>
+                    <div class="col-sm-12 dms-input-holder">
+                        @Html.PasswordFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.RePassword)
+                    </div>
+                    <div class="col-sm-12 dms-input-holder">
+                        @Html.PasswordFor(model => model.RePassword)
+                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-no-padding">
+                <div class="col-sm-12 dms-input-holder align-right">
+                    <input type="submit" class="dms-button" value="Register" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

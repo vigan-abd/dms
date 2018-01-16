@@ -1,0 +1,108 @@
+﻿@using Model.Business.ViewModel
+@using Model.Domain_Model
+@model Dictionary<string, List<SizeRequestViewModel>>
+@{
+    ViewBag.Title = "Size Requests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Size Requests</h2>
+<hr />
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#pending">Pending</a></li>
+    <li><a data-toggle="tab" href="#accepted">Accepted</a></li>
+    <li><a data-toggle="tab" href="#denied">Dennied</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="pending" class="tab-pane fade in active">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].Username)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].UserEmail)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].CurrentSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].AdditionalSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].Date)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Pending.ToString()][0].RequestStatus)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model[RequestStatus.Pending.ToString()])
+            {
+                        <tr>
+                            <td>@item.Username</td>
+                            <td>@item.UserEmail</td>
+                            <td>@item.CurrentSize</td>
+                            <td>@item.AdditionalSize</td>
+                            <td>@item.Date</td>
+                            <td>
+                                @Html.ActionLink("Accept", "AcceptSize", "Admin", htmlAttributes: null, routeValues: new { id = item.RequestID, email = item.UserEmail }) | @Html.ActionLink("Deny", "DenySize", "Admin", htmlAttributes: null, routeValues: new { id = item.RequestID, email = item.UserEmail })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="accepted" class="tab-pane fade">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].Username)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].UserEmail)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].CurrentSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].AdditionalSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].Date)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Accepted.ToString()][0].RequestStatus)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model[RequestStatus.Accepted.ToString()])
+            {
+                        <tr>
+                            <td>@item.Username</td>
+                            <td>@item.UserEmail</td>
+                            <td>@item.CurrentSize</td>
+                            <td>@item.AdditionalSize</td>
+                            <td>@item.Date</td>
+                            <td>@item.RequestStatus.ToString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="denied" class="tab-pane fade">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].Username)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].UserEmail)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].CurrentSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].AdditionalSize)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].Date)</th>
+                        <th class="dms-tbl-th">@Html.LabelFor(model => model[RequestStatus.Denied.ToString()][0].RequestStatus)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model[RequestStatus.Denied.ToString()])
+            {
+                        <tr>
+                            <td>@item.Username</td>
+                            <td>@item.UserEmail</td>
+                            <td>@item.CurrentSize</td>
+                            <td>@item.AdditionalSize</td>
+                            <td>@item.Date</td>
+                            <td>@item.RequestStatus.ToString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

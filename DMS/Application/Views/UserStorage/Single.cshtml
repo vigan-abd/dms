@@ -1,0 +1,87 @@
+﻿@using Model.Business.ViewModel;
+@using Helpers.Web;
+@model FileViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Title</h3>
+<hr />
+<div class="col-sm-12">
+    <div class="col-sm-6" style="border-right:1px solid #eee;">
+        <h4>File information</h4>
+        <hr />
+        @using (Html.BeginForm("EditFileInfo", "UserStorage", FormMethod.Post, htmlAttributes: new { @class = "dms-form" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.FileID, new { value = Model.FileID })
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.ShortDesc)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.TextAreaFor(model => model.ShortDesc)
+                @Html.ValidationMessageFor(model => model.ShortDesc, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.AccessLevel)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.DropDownListFor(model => model.AccessLevel, Model.ShareTypes, htmlAttributes: new { onchange = "ChangeShareDropdown(this, 'sharelist');" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.ShareList)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.ListBoxFor(model => model.ShareList, ViewBag.UserList as IEnumerable<SelectListItem>)
+                @Html.ValidationMessageFor(model => model.ShareList, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.Keywords)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.EditorFor(model => model.Keywords)
+                @Html.ValidationMessageFor(model => model.Keywords, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-12">
+                @Html.LabelFor(model => model.ExternalLink)
+            </div>
+            <div class="col-sm-12 dms-input-holder">
+                @Html.TextBox("ExternalLink", DirectoryHelper.GetWebHostUrl() + "/FileAccess/ReadExternal/?id=" + Model.ExternalLink + "&v={num}", new { disabled = "disabled", onclick = "setSelectionRange(0, this.value.length);"}) <br/>
+                <i onclick="RenewExternalLink(@Model.FileID)" style="color: white; background: #1fa67a; margin-top: 5px; cursor: pointer; border-radius: 50px; padding: 5px" class="fa fa-refresh" aria-hidden="true"></i> <q>*Dont forget to change {num} to version that you want</q>
+            </div>
+            <div class="col-sm-12 dms-input-holder" style="margin-top: 20px;">
+                <input type="submit" class="dms-button" value="Edit" />
+            </div>
+        }
+    </div>
+
+    <div class="col-sm-6">
+        <h4>Versions</h4>
+        <hr />
+        <div class="col-sm-12 col-no-padding">
+            @{
+                bool delete = (Model.Versions.ToList().Count > 1 ? true : false);
+            }
+            @foreach (var item in Model.Versions)
+            {
+                @Html.Raw(UIHelper.FileVersionBox(item.FileID, item.VerNo, delete))
+            }
+        </div>
+        <div class="col-sm-12 dms-input-holder" style="margin-top: 20px;">
+            @Html.ActionLink("Add Version", "AddVersion", "UserStorage", htmlAttributes: new { @class = "dms-button" }, routeValues: new { fileID = Model.FileID })
+        </div>
+    </div>
+</div>

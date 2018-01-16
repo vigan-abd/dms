@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="max-width: 900px;">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("Search", "Search", FormMethod.Get, htmlAttributes: new { @class = "dms-form" }))
+        {
+            @Html.AntiForgeryToken();
+
+            <div class="col-sm-9 col-no-padding dms-input-holder" style="margin-top: 10px;">
+                @Html.TextBox("term", null, htmlAttributes: new { required = "required", placeholder = "Keywords" })
+            </div>
+            <div class="col-sm-3 col-no-padding dms-input-holder" style="margin-top: 10px;">
+                <input type="submit" class="dms-button" style="width: 100%; padding: 2px;" value="Search" />
+            </div>
+            <script>
+                window.onload = function () {
+                    $('.dms-form').validate({
+                        ignore: "",
+                        rules: {
+                            term: {
+                                required: true,
+                                minlength: 3
+                            }
+                        }
+                    });
+                }
+            </script>
+        }
+    </div>
+</div>

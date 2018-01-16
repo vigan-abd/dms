@@ -1,0 +1,52 @@
+﻿@using Model.Business.Session;
+@using Microsoft.Security.Application;
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle dms-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a style="margin-right: 10px" class="navbar-brand dms-menu-item" href="@Url.Action("Index", "Home", null, Request.Url.Scheme)">
+        <i class="fa fa-file-code-o dms-fa"></i> DMS @{
+            if (User.Identity.IsAuthenticated)
+            {
+                <span> - </span>
+                @Html.Encode(User.Identity.Name);
+            }
+        }
+    </a>
+</div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav dms-navbar-nav">
+        @{
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("A"))
+                {
+                    <li class="dms-menu-item">
+                        <a href="@Url.Action("Index", "Admin", null, Request.Url.Scheme)" class="dms-menu-item">Users</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="dms-menu-item">
+                        <a href="@Url.Action("Index", "Home", null, Request.Url.Scheme)" class="dms-menu-item">Home</a>
+                    </li>
+                    <li class="dms-menu-item">
+                        <a href="@Url.Action("Index", "Search", null, Request.Url.Scheme)" class="dms-menu-item">Search</a>
+                    </li>
+                }
+                <li class="dms-menu-item">
+                    <a href="@Url.Action("Logout", "Account", null, Request.Url.Scheme)" class="dms-menu-item">Logout</a>
+                </li>
+            }
+            else
+            {
+                <li class="dms-menu-item">
+                    <a @Url.Action("Login", "Account", null, Request.Url.Scheme) class="dms-menu-item">Login</a>
+                </li>
+            }
+        }
+    </ul>
+
+</div>

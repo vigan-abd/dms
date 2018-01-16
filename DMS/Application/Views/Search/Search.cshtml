@@ -1,0 +1,52 @@
+﻿@using Model.Business.ViewModel;
+@using Model.Business.Session;
+@model List<SimpleFileViewModel>
+
+@{
+    ViewBag.Title = "Search results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Search results</h3>
+<hr />
+
+<div class="col-sm-12 dms-input-holder" style="margin-top: 20px;margin-bottom: 20px;">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="dms-tbl-th">Owner</th>
+                    <th class="dms-tbl-th">Title</th>
+                    <th class="dms-tbl-th">LastModified</th>
+                    <th class="dms-tbl-th">Versions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var file in Model)
+            {
+                    <tr>
+                        <td>@file.OwnerName</td>
+                        <td>@file.Title</td>
+                        <td>@file.LastModified</td>
+                        <td>
+                            @if (UserPayload.FileAccessList.Contains(file.FileID))
+                            {
+                                for (int i = 0; i < file.Versions.Count; i++)
+                                {
+                                    if (i != 0)
+                                    {
+                                        @Html.Raw(" | ")
+                                    }
+                                    @Html.ActionLink("Ver" + file.Versions[i], "Read", "FileAccess", routeValues: new { fileid = file.FileID, version = file.Versions[i] }, htmlAttributes: new { target = "_blank" })
+                                }
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Request Access", "AccessRequest", "FileAccess", routeValues: new { fileid = file.FileID, ownerID = file.OwnerID, rUserID = UserPayload.UserID }, htmlAttributes: new { target = "_blank" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

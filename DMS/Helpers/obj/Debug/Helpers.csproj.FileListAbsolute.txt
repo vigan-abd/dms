@@ -1,0 +1,28 @@
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\Helpers.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\Helpers.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\obj\Debug\Helpers.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\obj\Debug\Helpers.pdb
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\Helpers.dll.config
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\EntityFramework.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\EntityFramework.xml
+c:\users\vigan\documents\visual studio 2015\Projects\DMS\Helpers\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\DB Context\DMSDB.mdf
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\DB Context\DMSDB_log.ldf
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Model.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Model.pdb
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\obj\Debug\Helpers.csprojResolveAssemblyReference.cache
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.Mvc.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.Mvc.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Repository.dll
+C:\Users\Vigan\Documents\Visual Studio 2015\Projects\DMS\Helpers\bin\Debug\Repository.pdb
